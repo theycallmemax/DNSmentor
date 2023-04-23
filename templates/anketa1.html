@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+</head>
+<body>
+<h1>{{title}}</h1>
+{% for msg in get_flashed_messages()%}
+<div class="flash">{{msg}}</div>
+{% endfor %} <br>
+<form action="" method="post" >
+<input type="text" name="name" placeholder="Имя"><br><br>
+<input type="text" name="surname" placeholder="Фамилия"><br><br>
+<input type="text" name="country" placeholder="Страна"><br><br>
+<input type="text" name="city" placeholder="Город"><br><br>
+<input type="text" name="resume" placeholder="Ссылка на резюме"><br><br>
+<input type="text" name="mail" placeholder="Почта"><br><br>
+<input type="text" name="telegram" placeholder="Телеграм"><br><br>
+<br>
+<input type="submit" value="Отправить" name="ok">
+</form>
+</body>
+</html>

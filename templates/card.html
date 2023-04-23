@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title%} <title>{{mentor.name}}</title>{% endblock%}
+{% block body %}
+
+  <div class="main">
+<div class="first">
+  <div class="card_m">
+    <h1><b>{{mentor.name}}</b><br></h1>
+        <div class="third">
+        <img class="card"  src="{{ url_for('static', filename='img/photos/' + mentor.photo) }}">
+        </div>
+
+    <span>{{mentor.company}}</span>
+  </div>
+  <div class="card_m">
+    <b>Опыт:</b> {{mentor.experience}}<br>
+    <b>Цена (за час):</b> {{mentor.price}}<br>
+    <b>Получили помощь:</b> 18 человек
+  </div>
+  <div class="card_m">
+    <h3>Проекты</h3>
+    {{mentor.project}}</div>
+</div>
+    <div class="second">
+      <div class= "card_m" >
+        {{mentor.specialization}}
+        </div>
+  </div>
+
+      <div class="bot">
+      <input type="button" value="Оставить заявку" class="button" >
+      </div>
+
+</div>
+{% endblock %}
