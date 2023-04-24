@@ -21,22 +21,15 @@
 	   background-color: rgba(223, 223, 223, 1);
 	  }
 	  
-	  .dns{
-	  background-color: #fc8507;
-	  }
-	  
-      .dns2 {
-        background-color: black;
 
-      }
+	  
+
+
 	  .nav-link{
 	  color: black;
 	  }
 
-       .nav-link2 {
-	  color: white;
-	  }
-	  
+
 	  li{
 	  margin: 0px 10px;
 	  }
@@ -90,16 +83,7 @@
      width: 280px;
      margin : 20px;
 }
-    .img {
-      border-radius: 15px 15px 0 0;
-    }
-	
-	    .grid-card {
-      display: grid;
-      grid-template-columns: repeat(4, auto);
-      justify-items: center;
-      font-size: large;
-    }
+
 
     .nav-b {
       margin-top: 5px;
@@ -116,11 +100,7 @@
   .perf_1{
   background-image: linear-gradient(rgb(249,249,249), #92b7d3);
   }
-  .perf{
-  width: 50%;
-  margin: 0px auto;
-  }
-  
+
   .tex{
   padding: 5%;
   }
@@ -137,23 +117,155 @@
 	  box-shadow: 5px 10px 5px;
     }
 	
-      .about {
-      color: white;
-      text-decoration: none ;
-    }
-    .about1 {
-      background-color: #2b2f32;
-      border-radius: 5px;
-    }
-	
-  
+
   
 	
-    </style>
-    
-  </head>
+
+      	body {
+  background-image: linear-gradient(to right, rgba(223, 223, 223, 1), white, white);
+  }
+      header, footer, container-fluid{
+  background-image: linear-gradient(to right, rgba(223, 223, 223, 1), rgba(223, 223, 223, 1), white);
+	  }
+
+
+
+	  .nav-link{
+	  color: black;
+	  }
+
+
+
+	  li{
+	  margin: 0px 10px;
+	  }
+
+
+	  img {
+	   border-radius: 30px;
+	  }
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+.but {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+}
+
+.faq {
+    margin: 0;
+  padding: 0;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+span{
+  position: relative;
+  display: inline-flex;
+  width: 150px;
+  height: 50px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.but a:before,
+.but a:after{
+  position: absolute;
+    content: "Ментору";
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.faq a:before,
+.faq a:after{
+  position: absolute;
+    content: "FAQ";
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+    margin-right: 10px;
+}
+
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+.head {
+    display: grid;
+    align-content: end;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+h5 {
+    margin-left: 10px;
+}
+
+.main {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+    width: 150px;
+    height: 52px;
+    border: none;
+    background-color: #fc8507;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+
+  }
+
+.fot a:hover{
+    color: white;
+
+}
+
+  </style>
+</head>
   <body>
-  
+
   <!-- шапка -->
   <div class="container-fluid">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -161,10 +273,10 @@
         <img class="bi me-2" width=250 height="50" src="/static/img/logo5.png">
       </a>
 
-      <ul class="nav nav-pills nav-b">
-		<li class="nav-item"><a href="/faq" class="nav-link dns">Справка</a></li>
-        <li class="nav-item"><a  href="/mentor_anketa" class="nav-link dns">Ментору</a></li>
-      </ul>
+      <div class="nav nav-pills nav-b head">
+          <div class="nav-item faq"><span><a href="/faq" ></a></span></div>
+        <div class="nav-item but"><span><a  href="/mentor_anketa" ></a></span></div>
+      </div>
     </header>
   </div>
    
@@ -256,11 +368,13 @@
       {% endfor %}
  </div>
      </div>
+</div>
+      </div>
 </main>  
 
 
 <!-- Футер -->
-<div class="container-fluid">
+ <div class="container-fluid">
   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
     <div class="col mb-3">
       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
@@ -273,31 +387,28 @@
 
     </div>
 
-    <div class="col mb-3">
-      <h5>О проекте</h5>
+    <div class="col mb-3 fot">
+        <h5><b>О проекте</b></h5>
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="/o_nas" class="nav-link p-0 text-body-secondary">Проект "ДНС-ментор"</a></li>
-        <li class="nav-item mb-2"><a href="/teamr" class="nav-link p-0 text-body-secondary">Команда</a></li>
+        <li class="nav-item mb-2"><a href="/team" class="nav-link p-0 text-body-secondary">Команда</a></li>
         <li class="nav-item mb-2"><a href="/advantages" class="nav-link p-0 text-body-secondary">Преимущества</a></li>
       </ul>
     </div>
 
-    <div class="col mb-3">
-      <h5>Ментору</h5>
+    <div class="col mb-3 fot">
+      <h5><b>Ментору</b></h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Подать анкету</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Контакты</a></li>
+        <li class="nav-item mb-2"><a href="/mentor_anketa" class="nav-link p-0 text-body-secondary">Подать анкету</a></li>
+        <li class="nav-item mb-2"><a href="/rules" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
       </ul>
     </div>
 
-    <div class="col mb-3">
-      <h5>Менти</h5>
+    <div class="col mb-3 fot" >
+      <h5><b>Менти</b></h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Каталог менторов</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Условия</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Контакты</a></li>
+        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-body-secondary fot">Каталог менторов</a></li>
+        <li class="nav-item mb-2"><a href="/rules" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
       </ul>
     </div>
   </footer>
@@ -306,6 +417,7 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
+
   </body>
 </html>
+
