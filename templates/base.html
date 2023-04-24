@@ -56,8 +56,8 @@
 span{
   position: relative;
   display: inline-flex;
-  width: 180px;
-  height: 55px;
+  width: 150px;
+  height: 50px;
   margin: 0 15px;
   perspective: 1000px;
 }
@@ -74,8 +74,8 @@ span a{
 .but a:after{
   position: absolute;
     content: "Ментору";
-  height: 55px;
-  width: 180px;
+  height: 50px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,14 +88,15 @@ span a{
 .faq a:after{
   position: absolute;
     content: "FAQ";
-  height: 55px;
-  width: 180px;
+  height: 50px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 5px solid black;
   box-sizing: border-box;
   border-radius: 5px;
+    margin-right: 10px;
 }
 
 span a:before{
@@ -128,19 +129,21 @@ h5 {
 }
 
 .main {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 5px;
     width: 150px;
-    height: 55px;
+    height: 52px;
     border: none;
-    border-radius: 5px;
     background-color: #fc8507;
     color: white;
     font-size: 24px;
     cursor: pointer;
     text-decoration: none;
     padding: 5px;
-    margin-top: 4px;
-    margin-bottom: 0px;
-    margin-left: 40px;
+
   }
 
 .fot a:hover{
@@ -164,7 +167,6 @@ h5 {
           <div class="nav-item faq"><span><a href="#" ></a></span></div>
         <div class="nav-item but"><span><a  href="#" ></a></span></div>
       </div>
- {% block head %} {% endblock %}       
     </header>
   </div>
 {% block body %} {% endblock %}
@@ -191,7 +193,7 @@ h5 {
       </ul>
     </div>
 
-    <div class="col mb-3">
+    <div class="col mb-3 fot">
       <h5><b>Ментору</b></h5>
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Подать анкету</a></li>
@@ -199,7 +201,7 @@ h5 {
       </ul>
     </div>
 
-    <div class="col mb-3 footer" >
+    <div class="col mb-3 fot" >
       <h5><b>Менти</b></h5>
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary fot">Каталог менторов</a></li>
