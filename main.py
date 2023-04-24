@@ -171,13 +171,17 @@ def advantages():
 def o_nas():
     return render_template("o_nas.html")
 
-@app.route('/teamr')
+@app.route('/team')
 def team():
     return render_template("team.html")
 
 @app.route('/faq')
 def faq():
     return render_template("FAQ.html")
+
+@app.route('/rules')
+def rules():
+    return render_template("terms.html")
 
 
 
