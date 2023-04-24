@@ -18,9 +18,9 @@ def close_db(error):
         g.link_db.close()
 
 
-@app.route('/')
-@app.route('/main')
-@app.route('/card/main') #???
+#@app.route('/')
+#@app.route('/main')
+#@app.route('/card/main') #???
 #def main():
  #   return render_template("main.html")
 
@@ -64,11 +64,12 @@ def katalog():
     cursor = conn.cursor()
     if query == "not looking":
 
-        cursor.execute( """SELECT * FROM anketa """)
+        cursor.execute( """SELECT * FROM anketa 
+                            WHERE added=1""")
     else:
         cursor.execute("""SELECT * 
                         FROM anketa 
-                        WHERE LOWER(specialization) LIKE LOWER(:query) """,{"query":  f"%{query}%"})
+                        WHERE LOWER(specialization) LIKE LOWER(:query) and added=1""", {"query":  f"%{query}%"})
     mentor = cursor.fetchall()
 
     lst_mentor = []
