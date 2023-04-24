@@ -21,8 +21,8 @@ def close_db(error):
 @app.route('/')
 @app.route('/main')
 @app.route('/card/main') #???
-def main():
-    return render_template("main.html")
+#def main():
+ #   return render_template("main.html")
 
 
 
@@ -54,7 +54,7 @@ def mentor_profile(id):
     return render_template('card.html', mentor=lst_mentor_in_katalog)
 
 
-@app.route('/katalog',methods = ["GET","POST"])
+@app.route('/',methods = ["GET","POST"])
 def katalog():
     query = "not looking"
     if request.method == "POST":
@@ -85,7 +85,7 @@ def katalog():
         lst_mentor.append(d)
         conn.close()
 
-    return render_template("katalog1.html", mentor=lst_mentor)
+    return render_template("main.html", mentor=lst_mentor)
 
 
 @app.route('/mentor_anketa',methods = ["GET","POST"])

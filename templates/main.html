@@ -182,10 +182,10 @@
         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  src="/static/img/people.jpg">
     </div>
 	<div class="perf_1">
-	  <form class="search">
-    <input class="search1" type="search" name="search" placeholder="Найди своего ментора...">
-  <input class="button" type="submit" value="Найти" size="25px" href="#"></form>
-  </form>
+	  <form class="search" action="/katalog" method="POST" >
+    <input class="search1" type="search" name="query" placeholder="Найди своего ментора...">
+  <input class="button" type="submit" value="Найти" size="25px" href="#">
+ </form>
 
   </div>
   
@@ -234,47 +234,28 @@
         <a href="#"><span class="badge text-bg-secondary rounded-pill">Business</span></a>
       </div>
     </div>
-</div>
-<br>
-<div class="grid-card">
-<div class="card">
-    <img src="/static/img/img_avatar.png" alt="Avatar" style="width:100%" class="img">
-  <div class="container">
-      <h4><b>HTML CSS</b></h4>
-      <p>Architect & Engineer</p>
-    <p><b>Получили помощь 5 человек</b></p>
-    <span class="about1" ><a class="about" href="katalog.html" style="padding: 10px 20px;">Подробнее</a></span>
-  </div>
-</div>
-<div class="card">
-    <img src="/static/img/img_avatar.png" alt="Avatar" style="width:100%" class="img">
-  <div class="container">
-      <h4><b>HTML CSS</b></h4>
-      <p>Architect & Engineer</p>
-    <p><b>Получили помощь 5 человек</b></p>
-      <span class="about1" ><a class="about" href="katalog.html" style="padding: 10px 20px;">Подробнее</a></span>
-  </div>
-</div>
-<div class="card">
-    <img src="/static/img/img_avatar.png" alt="Avatar" style="width:100%" class="img">
-  <div class="container">
-      <h4><b>HTML CSS</b></h4>
-      <p>Architect & Engineer</p>
-    <p><b>Получили помощь 5 человек</b></p>
-      <span class="about1" ><a class="about" href="katalog.html" style="padding: 10px 20px;">Подробнее</a></span>
-  </div>
-</div>
-<div class="card">
-    <img src="/static/img/img_avatar.png" alt="Avatar" style="width:100%" class="img">
-  <div class="container">
-      <h4><b>HTML CSS</b></h4>
-      <p>Architect & Engineer</p>
-    <p><b>Получили помощь 5 человек</b></p>
-      <span class="about1" ><a class="about" href="katalog.html" style="padding: 10px 20px;">Подробнее</a></span>
-  </div>
-</div>
-</div>
+ <div class="container">
+
+    <div class="row">
+      {% for el in mentor %}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img class="card"  src="{{ url_for('static', filename='img/photos/' + el.photo) }}"  style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{ el.name }}</h4>
+            <p class="card-text">{{ el.project }}</p>
+             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a><br>
+            <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
+              <input type="hidden" name="telegram" value="{{ el.telegram }}">
+              <button type="submit" class="button">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
       </div>
+
+      {% endfor %}
+ </div>
+     </div>
 </main>  
 
 
