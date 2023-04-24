@@ -5,6 +5,62 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{title}}</title>
 </head>
+<style>
+  /* Общий стиль для всего документа */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Стиль для заголовка h1 */
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  /* Стиль для блока с сообщениями flash */
+  .flash {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* Стиль для формы */
+  form {
+    max-width: 600px; /* Ограничиваем максимальную ширину формы */
+    margin: 0 auto; /* Выравниваем форму по центру */
+    display: flex; /* Делаем форму флекс-контейнером */
+    flex-direction: column; /* Устанавливаем вертикальное направление флекс-элементов */
+    align-items: center; /* Выравниваем флекс-элементы по центру по горизонтали */
+  }
+
+  /* Стиль для полей ввода */
+  input[type="text"] {
+    width: 80%; /* Задаем ширину поля ввода в процентах от родительского элемента */
+    height: 40px; /* Задаем высоту поля ввода */
+    border: 1px solid black; /* Задаем границу поля ввода */
+    border-radius: 10px; /* Задаем скругление углов поля ввода */
+    font-size: 18px; /* Задаем размер шрифта поля ввода */
+    padding-left: 10px; /* Задаем отступ слева для текста в поле ввода */
+    margin-bottom: 10px; /* Задаем отступ снизу для поля ввода */
+  }
+
+  /* Стиль для кнопки отправки */
+  input[type="submit"] {
+    width: 40%; /* Задаем ширину кнопки в процентах от родительского элемента */
+    height: 50px; /* Задаем высоту кнопки */
+    border: none; /* Убираем границу кнопки */
+    border-radius: 25px; /* Задаем скругление углов кнопки */
+    background-color: #fc8507; /* Задаем цвет фона кнопки */
+    color: white; /* Задаем цвет текста кнопки */
+    font-size: 24px; /* Задаем размер шрифта кнопки */
+    cursor: pointer; /* Задаем курсор в виде руки при наведении на кнопку */
+	font-weight: bold;
+  }
+</style>
 <body>
 <h1>{{title}}</h1>
 {% for msg in get_flashed_messages()%}
