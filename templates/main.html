@@ -160,12 +160,57 @@ h5 {
       height: 50px;
     }
 
+    .button-card {
+      background-color: black;
+      color: white;
+      vertical-align: center;
+      -moz-border-radius:  10px; /* Firefox */
+      -webkit-border-radius:  10px; /* Safari 4 */
+      border-radius:  10px; /* IE 9, Safari 5, Chrome */
+      width: 120px;
+      height: 50px;
+        float: right;
+    }
+
     .grid-spec {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       justify-items: center;
+
     }
-	
+	.grid-spec1 {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+    .grid-spec2 {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+    .grid-spec3 {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+    .grid-spec4 {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+    .grid-spec5 {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    }
+
+
+
+
     .orange {
 	background-image: linear-gradient(#92b7d3, rgb(249,249,249));
       line-height: 10px;
@@ -174,13 +219,23 @@ h5 {
 	.badge{
 	font-size: 1em;
 	}
+
+    .card {
+        width : 80%;
+        height : 450px;
+        margin-left: 45px;
+        margin-top: 50px;
+        padding: 10px;
+        border-radius: 10px;
+    }
 	
-	   .card {
+	   .card-img {
      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
      transition: 0.3s;
      border-radius: 15px; /* 5px rounded corners */
-     width: 280px;
-     margin : 20px;
+     width: 80%;
+     height: 60%;
+
 }
 
 
@@ -257,14 +312,14 @@ h5 {
 	<div class="perf_1" id="scroll">
 	  <form class="search" action="/" method="POST" >
     <input class="search1" type="search" name="query" placeholder="Найди своего ментора...">
-  <input class="button" type="submit" value="Найти" size="25px" href="#">
+  <input class="button" type="submit" value="Найти" size="25px" href="#scroll1">
  </form>
 
   </div>
   
-<div class="orange">
-    <div class="grid-spec">
-      <div>
+<div class="orange" id="scroll">
+    <div  class="grid-spec">
+      <div class="grid-spec1">
       {% for el in block1 %}
         <form action="/" method="POST">
 
@@ -274,8 +329,8 @@ h5 {
 
         <br><br></form>
     {% endfor %}
-
-      <div>
+      </div>
+      <div class="grid-spec2">
       {% for el in block2 %}
         <form action="/" method="POST">
 
@@ -285,7 +340,8 @@ h5 {
 
         <br><br></form>
         {% endfor %}
-      <div>
+      </div>
+      <div class="grid-spec3">
          {% for el in block3 %}
         <form action="/" method="POST">
 
@@ -297,7 +353,7 @@ h5 {
         {% endfor %}
       </div>
 
-      <div>
+      <div class="grid-spec4">
         {% for el in block4 %}
         <form action="/" method="POST">
 
@@ -309,7 +365,7 @@ h5 {
         {% endfor %}
       </div>
 
-      <div>
+      <div class="grid-spec5">
         {% for el in block5 %}
         <form action="/" method="POST">
 
@@ -327,14 +383,14 @@ h5 {
       {% for el in mentor %}
       <div class="col-md-4">
         <div class="card mb-4">
-          <img class="card"  src="{{ url_for('static', filename='img/photos/' + el.photo) }}"  style="width:100%">
+          <img class="card-img"  src="{{ url_for('static', filename='img/photos/' + el.photo) }}"  style="width:100%">
           <div class="card-body">
             <h4 class="card-title">{{ el.name }}</h4>
             <p class="card-text">{{ el.project }}</p>
-             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a><br>
+             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a><br><br><br>
             <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
               <input type="hidden" name="telegram" value="{{ el.telegram }}">
-              <button type="submit" class="button">Оставить заявку</button>
+              <button type="submit" class="button-card">Оставить заявку</button>
             </form>
           </div>
         </div>
@@ -343,6 +399,8 @@ h5 {
       {% endfor %}
  </div>
      </div>
+</div>
+      </div>
 </div>
       </div>
 </main>  
