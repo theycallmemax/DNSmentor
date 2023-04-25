@@ -57,8 +57,49 @@ def mentor_profile(id):
 @app.route('/',methods = ["GET","POST"])
 def katalog():
     query = "not looking"
+    block1 = ["Analytics", "BI analytics", "System analytics", "Data analytics", "Data Science/ML"]
+    block2 = ["Development","Backend","Frontend","IOS","Android","Code review","System design"]
+    block3 = ["DevOps","Сети","Cloud","Databases","DevOps/SRE"]
+    block4 = ["Management","Team lead","Agile","Product","Project"]
+    block5 = ["Другое","HR","UX/UI","Marketing","QA","Business"]
+
     if request.method == "POST":
-        query = request.form["query"]
+        try:
+            for el in block1:
+                try:
+                    query = request.form[el]
+                    print(query)
+                except:
+                    pass
+            for el in block2:
+                try:
+                    query = request.form[el]
+                    print(query)
+                except:
+                    pass
+            for el in block3:
+                try:
+                    query = request.form[el]
+                    print(query)
+                except:
+                    pass
+            for el in block4:
+                try:
+                    query = request.form[el]
+                    print(query)
+                except:
+                    pass
+
+            for el in block5:
+                try:
+                    query = request.form[el]
+                    print(query)
+                except:
+                    pass
+        except:
+            query = request.form["query"]
+
+
 
     conn = sqlite3.connect('lib1.db')
     cursor = conn.cursor()
@@ -86,7 +127,7 @@ def katalog():
         lst_mentor.append(d)
         conn.close()
 
-    return render_template("main.html", mentor=lst_mentor)
+    return render_template("main.html", mentor=lst_mentor,block1=block1, block2=block2,block3=block3,block4=block4,block5=block5)
 
 
 @app.route('/mentor_anketa',methods = ["GET","POST"])

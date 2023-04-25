@@ -265,46 +265,60 @@ h5 {
 <div class="orange">
     <div class="grid-spec">
       <div>
-          <a href="#"><span class="badge text-bg-dark rounded-pill">Analytics</span></a><br><br>
-          <a href="#"><span class="badge text-bg-secondary rounded-pill">BI analytics</span></a><br><br>
-          <a href="#"><span class="badge text-bg-secondary rounded-pill"><b>System analytics</b></span></a><br><br>
-          <a href="#"><span class="badge text-bg-secondary rounded-pill">Data analytics</span></a><br><br>
-          <a href="#"><span class="badge text-bg-secondary rounded-pill">Data Science/ML</span></a>
+      {% for el in block1 %}
+        <form action="/" method="POST">
+
+        <!-- скрытый параметр -->
+          <input type="hidden" name="{{el}}" value="{{el}}" class="badge text-bg-dark rounded-pill">
+          <input type="submit" class="btn btn-dark" value="{{el}}" >
+
+        <br><br></form>
+    {% endfor %}
+
+      <div>
+      {% for el in block2 %}
+        <form action="/" method="POST">
+
+        <!-- скрытый параметр -->
+          <input type="hidden" name="{{el}}" value="{{el}}" class="badge text-bg-dark rounded-pill">
+          <input type="submit" class="btn btn-dark" value="{{el}}" >
+
+        <br><br></form>
+        {% endfor %}
+      <div>
+         {% for el in block3 %}
+        <form action="/" method="POST">
+
+        <!-- скрытый параметр -->
+          <input type="hidden" name="{{el}}" value="{{el}}" class="badge text-bg-dark rounded-pill">
+          <input type="submit" class="btn btn-dark" value="{{el}}" >
+
+        <br><br></form>
+        {% endfor %}
       </div>
 
       <div>
-        <a href="#"><span class="badge text-bg-dark rounded-pill">Development</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Backend</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Frontend</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">IOS</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Android</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Code review</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">System design</span></a><br><br><br><br><br>
+        {% for el in block4 %}
+        <form action="/" method="POST">
+
+        <!-- скрытый параметр -->
+          <input type="hidden" name="{{el}}" value="{{el}}" class="badge text-bg-dark rounded-pill">
+          <input type="submit" class="btn btn-dark" value="{{el}}" >
+
+        <br><br></form>
+        {% endfor %}
       </div>
 
       <div>
-        <a href="#"><span class="badge text-bg-dark rounded-pill">DevOps</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Сети</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Cloud</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Databases</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">DevOps/SRE</span></a>
-      </div>
+        {% for el in block5 %}
+        <form action="/" method="POST">
 
-      <div>
-        <a href="#"><span class="badge text-bg-dark rounded-pill">Management</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Team lead</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Agile</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Product</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Project</span></a>
-      </div>
+        <!-- скрытый параметр -->
+          <input type="hidden" name="{{el}}" value="{{el}}" class="badge text-bg-dark rounded-pill">
+          <input type="submit" class="btn btn-dark" value="{{el}}" >
 
-      <div>
-        <a href="#"><span class="badge text-bg-dark rounded-pill">Другое</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">HR</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">UX/UI</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Marketing</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">QA</span></a><br><br>
-        <a href="#"><span class="badge text-bg-secondary rounded-pill">Business</span></a>
+        <br><br></form>
+        {% endfor %}
       </div>
     </div>
  <div class="container">
