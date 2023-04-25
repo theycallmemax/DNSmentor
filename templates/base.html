@@ -150,8 +150,10 @@ h5 {
     color: white;
 
 }
-
+        {% block style %}
+        {% endblock %}
   </style>
+      <title>{% block title %} {% endblock %}</title>
 </head>
   <body>
 
@@ -169,7 +171,9 @@ h5 {
       </div>
     </header>
   </div>
-{% block body %} {% endblock %}
+
+{% block body %}
+{% endblock %}
 
   <!-- Футер -->
      <div class="container-fluid">
