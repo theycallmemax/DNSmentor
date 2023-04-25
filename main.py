@@ -44,6 +44,8 @@ def mentor_profile(id):
         d["specialization"] = ment[4]
         d["projects"] = ment[5]
         d["name"] = ment[6]
+        d["experience"] = ment[8]
+        d["price"] = ment[9]
         lst_mentor.append(d)
     lst_mentor_in_katalog = ""
     conn.close()
@@ -51,7 +53,7 @@ def mentor_profile(id):
         if lst_mentor[i]["id"] == id:
             lst_mentor_in_katalog = lst_mentor[i]
 
-    return render_template('card.html', mentor=lst_mentor_in_katalog)
+    return render_template('card_1.html', mentor=lst_mentor_in_katalog)
 
 
 @app.route('/',methods = ["GET","POST"])
