@@ -217,6 +217,35 @@ h5 {
 
 }
 
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: lightskyblue;
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+.png {
+    margin : 10px;
+}
+
     </style>
     
   </head>
@@ -245,9 +274,13 @@ h5 {
    <h1>
      После заполнения этой анкеты в it-сообществе Дальнего Востока будет на одного ментора больше
    </h1><br><br>
+     <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          Обратите внимание, что для получения оповещения в чат-боте нужно сначала ему написать @
+     </div><br><br>
      <img class="img1" src="/static/img/dns_anketa.png">
   <p>
-    <img   src="/static/img/png.png" width="155" height="155" >
+    <img   src="/static/img/png.png" width="155" height="155" class="png">
     <input type="file" name="photo" value="Загрузите фото" accept="image/jpeg,image/png,image/gif">
   </p>
 <br>
