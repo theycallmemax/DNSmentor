@@ -1,18 +1,9 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+{% extends 'base.html' %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.111.3">
-    <title>Ментор Иван Лопатеев</title>
+{% block title %} Форма менти {% endblock %}
 
+{% block style %}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-
-    <style>
 		body {
   background-image: linear-gradient(to right, rgba(223, 223, 223, 1), rgba(255, 247, 239, 1), rgba(255, 247, 239, 1));
   }
@@ -66,9 +57,10 @@
     }
      .spec {
        display: flex;
-       flex-direction: row;
+       flex-direction: column;
        justify-content: center;
        align-items: center;
+        text-align : center;
      }
 
      .button {
@@ -89,36 +81,33 @@
 
      .grid-container {
        display: grid;
-       grid-template-columns:60% 40%;
-       grid-gap: 10px;
+       grid-template-columns:20% 30% 40%;
        justify-items: center;
+
+
      }
 
+    .spec h4 {
+    font-weight : bold;
+    margin-left: 30px;
+    }
 
+{% endblock %}
 
-    </style>
-    
-  </head>
-  <body>
-<main>
-  <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img class="bi me-2" width=250 height="50" src="/static/img/logo5.png">
-      </a>
+{% block body %}
 
-      <ul class="nav nav-pills nav-b">
-        <li class="nav-item"><a href="#" class="nav-link dns" aria-current="page">Главная</a></li>
-		<li class="nav-item"><a href="#" class="nav-link dns">Справка</a></li>
-        <li class="nav-item"><a  href="#" class="nav-link dns2 nav-link2">Ментору</a></li>
-      </ul>
-    </header>
-  </div>
-</main>
 <div class="grid-container">
+ <div class="spec">
+ <h4>Навыки</h4>
+    <ul>
+  {%for el in mentor.specialization.replace(", ", ",").split(",")%}
+    <a href="#"><span class="badge text-bg-dark rounded-pill">{{el}}</span></a>
+  {% endfor %}
+    </ul>
+</div>
 <div class="card">
   <h2>{{mentor.name}}</h2>
-  <h4>Где работал:</h4>
+  <h4>Компания:</h4>
   {{mentor.company_title}}
   <h4>Опыт работы:</h4> {{mentor.experience}}<br>
   <h4>Цена (за час):</h4> {{mentor.price}}<br>
@@ -126,6 +115,7 @@
   <h4>Проекты</h4>
     {{mentor.projects}}
 </div>
+
   <div class="third">
         <img src="{{ url_for('static', filename='img/photos/' + mentor.photo) }}">
       <div class="bot">
@@ -135,65 +125,10 @@
         </form>
       </div>
   </div>
-<div class="spec">
-  {%for el in mentor.specialization.replace(", ", ",").split(",")%}
-    <a href="#"><span class="badge text-bg-dark rounded-pill">{{el}}</span></a><br><br>
-  {% endfor %}
-</div>
+
 
 </div>
 
 
 
-
-<!-- Футер -->
-<div class="container-fluid">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-        <img class="bi me-2" width=250 height="50" src="/static/img/logo5.png">
-      </a>
-      <p class="text-body-secondary">&copy; 2023</p>
-    </div>
-
-    <div class="col mb-3">
-
-    </div>
-
-    <div class="col mb-3">
-      <h5>О проекте</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Проект "ДНС-ментор"</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Команда</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Преимущества</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Ментору</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Подать анкету</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Контакты</a></li>
-      </ul>
-    </div>
-
-    <div class="col mb-3">
-      <h5>Менти</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Каталог менторов</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Правила сайта</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Условия</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Контакты</a></li>
-      </ul>
-    </div>
-  </footer>
-</div>
-
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
-  </body>
-</html>
-
+    <{% endblock %}
