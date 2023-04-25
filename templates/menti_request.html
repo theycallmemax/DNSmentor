@@ -5,9 +5,16 @@
 {% block style %}
 
 form {
-border : 1px solid orange;
+    margin-top : 150px;
 text-align : center;
 }
+
+.img0 {
+    float : right;
+    height : 450px;
+    width : 550px;
+    margin: 10px;
+    }
 
 {% endblock %}
 
@@ -16,6 +23,7 @@ text-align : center;
     {% for msg in get_flashed_messages()%}
     <h2>{{msg}}!!!</h2>
     {% endfor %}
+        <img src="/static/img/Team.jpeg" class="img0">
       <form action="/menti_request" method="post">
       <p>
 
