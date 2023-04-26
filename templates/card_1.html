@@ -101,7 +101,7 @@
  <h4>Навыки</h4>
     <ul>
   {%for el in mentor.specialization.replace(", ", ",").split(",")%}
-    <a href="#"><span class="badge text-bg-dark rounded-pill">{{el}}</span></a>
+    <a href="#"><span type="hidden" class="badge text-bg-dark rounded-pill">{{el}}</span></a>
   {% endfor %}
     </ul>
 </div>
