@@ -253,7 +253,23 @@ h5 {
 .table {
     width: 100%;
     border-collapse: collapse;
+
+
 }
+
+.table1 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 80px;
+
+}
+
+.table2 {
+margin: auto;
+}
+
+
+
 
 .table td {
     padding: 3%;
@@ -307,29 +323,21 @@ h5 {
     <img src="/static/img/png.png" width="155" height="155" class="png">
     <label for="photo">Загрузите фото</label>
     <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/gif">
-  </p>
+  </p><br><br>
   <p>
     Ваше имя и фамилия<br>
     <input type="text" name="name" size="40%">
-  </p>
+  </p><br>
+
   <p>
-    Расскажите про ваш предыдущий опыт работы<br>
-    <input type="text" name="tg" size="40%">
-  </p>
-  <p>
-    Какова цена ваших занятий?<br>
-    <input type="button" value="Бесплатно">
-    <input type="button" value="По договоренности">
-    <input type="text" name="tg" size="12%" placeholder="Напишите цену">
-  </p>
+      Топ проектов, в которых вы участвовали<br>
+    <input type="text" name="project" size="40%"><br><br>
+    </p>
   <p>
     В какой компании и на какой должности вы работаете?<br>
     <input type="text" name="company" size="40%">
   </p>
-  <p>
-    Телеграм для связи<br>
-    <input type="text" name="tg" size="40%">
-  </p>
+
 </div><br>
     <p>С чем вы можете помочь?<br>
       <table class="table" cellspacing="0">
@@ -380,7 +388,7 @@ h5 {
 
    Ваш опыт работы:
       <br>
-     <table class="table" cellspacing="0">
+     <table class="table table1" cellspacing="0">
      <tr>
       <td><input type="radio" name="experience" value="меньше 1 года" id="exp1">
       <label for="exp1">меньше 1 года</label>    </td>
@@ -396,7 +404,7 @@ h5 {
 </table>
      <p>
 Какова цена ваших занятий?
-<table class="table" cellspacing="0">
+<table class="table table1" cellspacing="0">
      <tr>
       <td><input type="radio" name="price" value="Бесплатно" id="pr1">
       <label for="pr1">Бесплатно</label>    </td>
@@ -404,13 +412,14 @@ h5 {
       <input type="radio" name="price" value="По договоренности" id="pr2">   <label for="pr2">По договоренности</label>
       </td>
      <td>
-         <input type="text" name="price_text" value="" id="pr3">   <label for="pr3">Напишите цену</label>
+         <input type="text" name="price_text" value="" id="pr3" placeholder="1000р">   <label for="pr3">Напишите цену за час вашей работы</label>
      </td></tr>
- </table>
-      Топ проектов, в которых вы участвовали<br>
-    <input type="text" name="project" size="40%"><br><br>
-      <input type="submit" value="Отправить" class="button" >
-    </p>
+ </table><br><br>
+   <p>
+    Телеграм для связи<br>
+    <input type="text" name="tg" size="40%" placeholder="без@">
+  </p>
+     <input type='submit' value="Отправить" class="button">
   </form>
 </main>
   <!-- Футер -->
