@@ -178,6 +178,7 @@ h5 {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       justify-items: center;
 
+
     }
 	.grid-spec1 {
       display: grid;
@@ -238,6 +239,8 @@ h5 {
      height: 60%;
 
 }
+
+
 
 
     .nav-b {
@@ -311,18 +314,17 @@ h5 {
         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  src="/static/img/people.jpg">
     </div>
 	<div class="perf_1" >
-	  <form class="search" action="/" method="POST" >
+	  <form class="search" action="/" method="POST" id="scroll">
     <input class="search1" type="search" name="query" placeholder="Найди своего ментора...">
   <input class="button" type="submit" value="Найти" size="25px" href="#scroll1">
  </form>
 
   </div>
   
-<div class="orange" id="scroll">
+<div class="orange">
     <div  class="grid-spec">
       <div class="grid-spec1">
-
-      {% for el in block1 %}
+       {% for el in block1 %}
         <form action="/" method="POST">
 
         <!-- скрытый параметр -->
