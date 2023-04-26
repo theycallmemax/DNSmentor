@@ -252,7 +252,7 @@ h5 {
     }
 
   .container {
-    padding: 2px 16px;
+    padding: 5px 5px 0 5px;
 }
 
   .perf_0{
@@ -273,17 +273,24 @@ h5 {
       vertical-align: center;
       -moz-border-radius:  10px; /* Firefox */
       -webkit-border-radius:  10px; /* Safari 4 */
-      border-radius:  10px; /* IE 9, Safari 5, Chrome */
+      border-radius:  15px; /* IE 9, Safari 5, Chrome */
       width: 180px;
       height: 50px;
 	  box-shadow: 5px 10px 5px;
       text-decoration: none;
       text-align: center;
-      padding: 12px;
+      padding: 12px 12px 0 12px;
     }
 
   .but_met:hover {
       color: white;
+  }
+
+  .grid-but {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   }
 
   </style>
@@ -397,12 +404,13 @@ h5 {
               {%for el in el.company_title.replace(", ", ",").split(",")%}
             <p class="card-text">{{ el}}</p>
               {% endfor %}
-
-             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a>
-            <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
-              <input type="hidden" name="telegram" value="{{ el.telegram }}">
-              <button type="submit" class="button-card">Оставить заявку</button>
+            <div class="grid-but">
+               <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a>
+              <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
+                <input type="hidden" name="telegram" value="{{ el.telegram }}">
+                <button type="submit" class="button-card">Оставить заявку</button>
             </form>
+            </div>
           </div>
         </div>
       </div>

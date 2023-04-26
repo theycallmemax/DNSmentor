@@ -60,8 +60,19 @@
        flex-direction: column;
        justify-content: center;
        align-items: center;
-        text-align : center;
+       text-align : center;
+
      }
+
+    .spec span{
+        width: auto;
+
+  }
+
+    .spec h4 {
+    margin-right: 25px;
+}
+
 
      .button {
        background-color: black;
@@ -92,6 +103,9 @@
     margin-left: 30px;
     }
 
+    .speci {
+
+
 {% endblock %}
 
 {% block body %}
@@ -99,11 +113,12 @@
 <div class="grid-container">
  <div class="spec">
  <h4>Навыки</h4>
-    <ul>
+
   {%for el in mentor.specialization.replace(", ", ",").split(",")%}
-    <a href="#"><span type="hidden" class="badge text-bg-dark rounded-pill">{{el}}</span></a>
+  <span type="hidden" class="badge text-bg-dark rounded-pill speci">{{el}}</span>
+
   {% endfor %}
-    </ul>
+
 </div>
 <div class="card">
   <h2>{{mentor.name}}</h2>
