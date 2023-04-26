@@ -1,9 +1,9 @@
 from flask import Flask,render_template, request, g, flash,redirect,jsonify,session
 import sqlite3
 from sqlite3 import Error
-from flask_ngrok import run_with_ngrok
+
 from send_message import telegram_bot_sendtext
-from flask_uploads import UploadSet, configure_uploads, IMAGES
+
 import os
 
 

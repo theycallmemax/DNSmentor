@@ -397,7 +397,8 @@ h5 {
               {%for el in el.company_title.replace(", ", ",").split(",")%}
             <p class="card-text">{{ el}}</p>
               {% endfor %}
-             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a><br><br><br>
+
+             <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a>
             <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
               <input type="hidden" name="telegram" value="{{ el.telegram }}">
               <button type="submit" class="button-card">Оставить заявку</button>
