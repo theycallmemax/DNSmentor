@@ -390,7 +390,9 @@ h5 {
           <img class="card-img"  src="{{ url_for('static', filename='img/photos/' + el.photo) }}"  style="width:100%">
           <div class="card-body">
             <h4 class="card-title">{{ el.name }}</h4>
-            <p class="card-text">{{ el.project }}</p>
+              {%for el in el.company_title.replace(", ", ",").split(",")%}
+            <p class="card-text">{{ el}}</p>
+              {% endfor %}
              <a class="p-2 text-dark" href="card/{{el.id}} " style="padding: 10px 20px;">подробнее</a><br><br><br>
             <form action="/menti_request" method="post" id="form-{{ el.telegram }}">
               <input type="hidden" name="telegram" value="{{ el.telegram }}">
