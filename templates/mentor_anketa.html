@@ -299,7 +299,7 @@ h5 {
    </h1><br><br>
      <div class="alert">
           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-          Обратите внимание, что для получения оповещения в чат-боте нужно сначала ему написать @
+          Обратите внимание, что для получения оповещения в чат-боте нужно сначала ему написать @MentorAppointment_bot
      </div><br><br>
      <div><img class="img1 img" src="/static/img/dns_anketa.png" width="810" height="500"> </div>
      <div>
@@ -373,10 +373,40 @@ h5 {
   </p><br>
    <p>
       Другие навыки (специализации, языки и тп.)<br>
-    <input type="text" name="additional_information" size="40%"><br><br>
+    <input type="text" name="additional_information" size="40%"><br>
     </p><br>
     <p>
+      <p>
 
+   Ваш опыт работы:
+      <br>
+     <table class="table" cellspacing="0">
+     <tr>
+      <td><input type="radio" name="experience" value="меньше 1 года" id="exp1">
+      <label for="exp1">меньше 1 года</label>    </td>
+      <td>
+      <input type="radio" name="experience" value="1-2 год(а)" id="exp2">      <label for="exp2">1-2 год(а)</label>
+      </td>    <td>
+      <input type="radio" name="experience" value="2-4 года" id="exp3">      <label for="exp3">2-4 года</label>
+     </td>    <td>
+      <input type="radio" name="experience" value="5-10 лет" id="exp4">      <label for="exp4">5-10 лет</label>
+     </td>    <td>
+      <input type="radio" name="experience" value="более 10 лет" id="exp5">      <label for="exp5">более 10 лет</label>
+    </td>  </tr>
+</table>
+     <p>
+Какова цена ваших занятий?
+<table class="table" cellspacing="0">
+     <tr>
+      <td><input type="radio" name="price" value="Бесплатно" id="pr1">
+      <label for="pr1">Бесплатно</label>    </td>
+      <td>
+      <input type="radio" name="price" value="По договоренности" id="pr2">   <label for="pr2">По договоренности</label>
+      </td>
+     <td>
+         <input type="text" name="price_text" value="" id="pr3">   <label for="pr3">Напишите цену</label>
+     </td></tr>
+ </table>
       Топ проектов, в которых вы участвовали<br>
     <input type="text" name="project" size="40%"><br><br>
       <input type="submit" value="Отправить" class="button" >

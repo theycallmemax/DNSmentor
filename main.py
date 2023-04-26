@@ -1,15 +1,18 @@
 from flask import Flask,render_template, request, g, flash,redirect,jsonify,session
 import sqlite3
 from sqlite3 import Error
+from flask_ngrok import run_with_ngrok
 from send_message import telegram_bot_sendtext
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 import os
-
 
 
 app = Flask(__name__)
 
-
 app.config["SECRET_KEY"] = os.urandom(24)
+
+
+
 
 
 @app.teardown_appcontext
@@ -138,13 +141,22 @@ def mentor_anketa():
         conn = sqlite3.connect('lib1.db')
         cursor = conn.cursor()
 
+
         photo = "Фото"
-        #photo = photos.save(request.files['photo'])
 
         company_title = request.form['company']
         telegram = request.form['tg']
         specialization = ""
-
+        experience = ""
+        price = ""
+        try:
+            experience = request.form["experience"]
+        except:
+            pass
+        try:
+            price = request.form["price"]
+        except:
+            price = request.form["price_text"]
         rang = [x for x in range(1, 11)]
         for rang in rang:
             try:
@@ -158,12 +170,12 @@ def mentor_anketa():
         specialization +=f',{request.form["additional_information"]}'
         projects = request.form['project']
         name = request.form['name']
-        cursor.execute("""INSERT INTO anketa(photo,company_title,telegram,specialization,projects,name)
-                                                    VALUES (:photo,:company_title,:telegram,:specialization,:projects,:name)
+        cursor.execute("""INSERT INTO anketa(photo,company_title,telegram,specialization,projects,name, price, experience)
+                                                    VALUES (:photo,:company_title,:telegram,:specialization,:projects,:name, :price, :experience)
                                                                    """,
-                           {"photo":photo,"company_title": company_title, "telegram": telegram, "specialization": specialization, "projects": projects, "name":name})
+                           {"photo":photo,"company_title": company_title, "telegram": telegram, "specialization": specialization, "projects": projects, "name":name,"price":price,"experience":experience })
 
-        text = f'ФИО: {name}\nКомпания и должность:  {company_title}\nТелеграм:  {telegram}\nСпециализация:  {specialization}\nТоп проектов:  {projects}'
+        text = f'ФИО: {name}\nКомпания и должность:  {company_title}\nТелеграм:  {telegram}\nСпециализация:  {specialization}\nТоп проектов:  {projects}, Цена:  {price}\n Опыт:  {experience}'
         telegram_bot_sendtext(text)
         conn.commit()
         flash("Анкета отправлена")
