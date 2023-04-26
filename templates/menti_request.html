@@ -18,7 +18,7 @@ text-align : center;
 
     /* The alert message box */
 .alert {
-    padding: 20px;
+    text-align: center;
     background-color: lightskyblue;
     color: white;
     margin-bottom: 15px;
@@ -39,6 +39,15 @@ text-align : center;
 /* When moving the mouse over the close button */
 .closebtn:hover {
     color: black;
+}
+@media only screen and (max-width: 700px) {
+
+  .img0 {
+    width: 600px;
+    height: 450px;
+    float: none;
+    margin: 10px auto;
+  }
 }
 
 {% endblock %}
