@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %} Форма менти {% endblock %}
+{% block title %} Подробности о менторе {% endblock %}
+
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=640, initial-scale=0.7" media="screen and (max-width: 415px)">
+
+</head>
 
 {% block style %}
 
@@ -107,6 +113,16 @@
     .speci {
 
 
+    a {
+  display: flex;
+  text-decoration: none;
+}
+
+span {
+  flex: auto;
+}
+
+
 {% endblock %}
 
 {% block body %}
@@ -116,7 +132,7 @@
  <h4>Навыки</h4>
 
   {%for el in mentor.specialization.replace(", ", ",").split(",")%}
-  <span type="hidden" class="badge text-bg-dark rounded-pill speci">{{el}}</span>
+  <span type="hidden" class="badge text-bg-dark rounded-pill spec">{{el}}</span>
 
   {% endfor %}
 
