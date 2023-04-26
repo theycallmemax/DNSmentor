@@ -11,10 +11,23 @@ text-align : center;
 
 .img0 {
     float : right;
-    height : 450px;
-    width : 550px;
-    margin: 10px;
+    height : 460px;
+    width : 460px;
+    margin-right: 70px;
+
     }
+
+.note {
+text-align: right;
+margin-right: 130px;
+}
+
+.h {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-left: 150px;
+}
 
     /* The alert message box */
 .alert {
@@ -63,8 +76,13 @@ text-align : center;
     <div class="alert">
           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
           Обратите внимание, что для получения оповещения в чат-боте нужно сначала ему написать @MentorAppointment_bot
-     </div><br><br>
-        <img src="/static/img/Team.jpeg" class="img0">
+     </div><br>
+        <div class="h">
+            <div><h1>Один шаг для разговора с ментором</h1></div>
+            <div><h4 class="note">Отсканируй для перехода в бота</h4></div>
+        </div>
+        <img src="/static/img/photos/QR_code.png" class="img0">
+
       <form action="/menti_request" method="post">
       <p>
 
