@@ -1,17 +1,18 @@
 from flask import Flask,render_template, request, g, flash,redirect,jsonify,session
 import sqlite3
 from sqlite3 import Error
-
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 from send_message import telegram_bot_sendtext
-
+from flask import url_for
 import os
 
 
 app = Flask(__name__)
 
+photos = UploadSet('photos', IMAGES)
+app.config["UPLOADED_PHOTOS_DEST"] = "static/img/photos"
 app.config["SECRET_KEY"] = os.urandom(24)
-
-
+configure_uploads(app, photos)
 
 
 
@@ -140,9 +141,10 @@ def mentor_anketa():
     if request.method == "POST":
         conn = sqlite3.connect('lib1.db')
         cursor = conn.cursor()
-
-
-        photo = "Фото"
+        try:
+            photo = photos.save(request.files['photo'])
+        except:
+            photo = "Тут должно быть фото"
 
         company_title = request.form['company']
         telegram = request.form['tg']
@@ -167,6 +169,7 @@ def mentor_anketa():
                     specialization += f"{rq}"
             except:
                 a = []
+
         specialization +=f',{request.form["additional_information"]}'
         projects = request.form['project']
         name = request.form['name']
@@ -175,7 +178,8 @@ def mentor_anketa():
                                                                    """,
                            {"photo":photo,"company_title": company_title, "telegram": telegram, "specialization": specialization, "projects": projects, "name":name,"price":price,"experience":experience })
 
-        text = f'ФИО: {name}\nКомпания и должность:  {company_title}\nТелеграм:  {telegram}\nСпециализация:  {specialization}\nТоп проектов:  {projects}, Цена:  {price}\n Опыт:  {experience}'
+        photo_url = url_for('static', filename='/img/photos/' + photo)
+        text = f'Фото:{photo_url} \nФИО: {name}\nКомпания и должность:  {company_title}\nТелеграм:  {telegram}\nСпециализация:  {specialization}\nТоп проектов:  {projects}, Цена:  {price}\n Опыт:  {experience}'
         telegram_bot_sendtext(text)
         conn.commit()
         flash("Анкета отправлена")
@@ -186,7 +190,6 @@ def mentor_anketa():
 def menti_request():
     if request.method == "POST":
         try:
-
             name = request.form["name"]
             telegram_menti = request.form["telegram"]
             message = request.form["message"]
@@ -198,6 +201,7 @@ def menti_request():
             """, {"name":name,"tg":telegram_menti,"message":message})
             conn.commit()
             name_user = session.get('item')
+
             cursor.execute(
                 """
                 SELECT chat_id
@@ -215,6 +219,7 @@ def menti_request():
         except:
             tg_mentor = request.form["telegram"]
             session['item'] = tg_mentor
+
     return render_template("menti_request.html")
 
 
