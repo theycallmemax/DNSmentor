@@ -3,7 +3,7 @@ import sqlite3
 from sqlite3 import Error
 
 from send_message import telegram_bot_sendtext
-
+#Хуй
 import os
 
 
