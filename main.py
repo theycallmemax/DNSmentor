@@ -10,20 +10,11 @@ import os
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.urandom(24)
-configure_uploads(app, photos)
 
 
 
-def save_photo_to_db(photo_path):
-    with open(photo_path, 'rb') as f:
-        photo_data = f.read()
-        conn = sqlite3.connect('lib1.db')
-        cursor = conn.cursor()
-        cursor.execute('INSERT INTO anketa (photo_data) VALUES (?)', (photo_data,))
-        conn.commit()
-        conn.close()
-photos = UploadSet('photos', IMAGES)
-app.config["UPLOADED_PHOTOS_DEST"] = "static/img/photos"
+
+
 @app.teardown_appcontext
 def close_db(error):
     if hasattr(g, "ling_db"):
