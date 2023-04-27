@@ -1,7 +1,7 @@
 from flask import Flask,render_template, request, g, flash,redirect,jsonify,session
 import sqlite3
 from sqlite3 import Error
-from flask_uploads import UploadSet, configure_uploads, IMAGES
+#from flask_uploads import UploadSet, configure_uploads, IMAGES
 from send_message import telegram_bot_sendtext
 from flask import url_for
 import os
@@ -9,10 +9,10 @@ import os
 
 app = Flask(__name__)
 
-photos = UploadSet('photos', IMAGES)
-app.config["UPLOADED_PHOTOS_DEST"] = "static/img/photos"
-app.config["SECRET_KEY"] = os.urandom(24)
-configure_uploads(app, photos)
+# photos = UploadSet('photos', IMAGES)
+# app.config["UPLOADED_PHOTOS_DEST"] = "static/img/photos"
+# app.config["SECRET_KEY"] = os.urandom(24)
+# configure_uploads(app, photos)
 
 
 
@@ -142,7 +142,7 @@ def mentor_anketa():
         conn = sqlite3.connect('lib1.db')
         cursor = conn.cursor()
         try:
-            photo = photos.save(request.files['photo'])
+            photo = "" #photos.save(request.files['photo'])
         except:
             photo = "Тут должно быть фото"
 
